@@ -15,15 +15,20 @@
       --muted-soft: #8b8177;
       --accent: #38322d;
       --max: 1180px;
-      --shadow: 0 10px 30px rgba(55, 46, 40, 0.04);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
       background: var(--bg);
       color: var(--text);
       font-family: Georgia, "Times New Roman", serif;
@@ -36,18 +41,28 @@
       text-decoration: none;
     }
 
+    .page {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      justify-content: center;
+    }
+
     .site {
+      width: 100%;
       max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 20px 26px;
+      padding: 0 18px;
+      display: grid;
+      grid-template-rows: auto auto auto auto 1fr auto;
+      gap: 10px;
     }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 24px;
-      padding: 16px 0 14px;
+      gap: 20px;
+      padding: 12px 0 10px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -56,24 +71,18 @@
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--accent);
       white-space: nowrap;
-      text-transform: uppercase;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 24px;
+      gap: 22px;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
-      font-weight: 500;
       color: var(--muted);
-    }
-
-    .nav a {
-      transition: color 0.18s ease;
     }
 
     .nav a:hover {
@@ -81,46 +90,47 @@
     }
 
     .hero {
-      padding: 34px 0 12px;
       text-align: center;
+      padding-top: 6px;
     }
 
     h1 {
       margin: 0 auto;
-      max-width: 950px;
-      font-size: 50px;
-      line-height: 1.03;
-      font-weight: 400;
+      max-width: 900px;
+      font-size: clamp(32px, 4.1vw, 52px);
+      line-height: 1.02;
       letter-spacing: -0.02em;
+      font-weight: 400;
       color: var(--accent);
     }
 
     .hero-sub {
-      max-width: 720px;
-      margin: 16px auto 0;
-      font-size: 18px;
-      line-height: 1.68;
+      max-width: 760px;
+      margin: 8px auto 0;
+      font-size: clamp(14px, 1.35vw, 18px);
+      line-height: 1.45;
       color: var(--muted);
     }
 
     .center-panel {
-      max-width: 960px;
-      margin: 24px auto 0;
-      background: rgba(255,255,255,0.52);
+      max-width: 980px;
+      margin: 0 auto;
+      width: 100%;
+      background: rgba(255,255,255,0.50);
       border: 1px solid var(--border);
-      border-radius: 26px;
-      padding: 16px;
+      border-radius: 22px;
+      padding: 10px;
     }
 
     .map-frame {
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 14px;
       overflow: hidden;
       background:
         radial-gradient(circle at 30% 35%, rgba(120, 113, 108, 0.08), transparent 28%),
         radial-gradient(circle at 72% 48%, rgba(120, 113, 108, 0.05), transparent 24%),
         linear-gradient(180deg, #faf8f5 0%, #ede8e0 100%);
-      aspect-ratio: 16 / 4.3;
+      height: clamp(130px, 19vh, 210px);
     }
 
     .map-svg {
@@ -130,52 +140,41 @@
     }
 
     .center-text {
-      padding: 14px 8px 4px;
       text-align: center;
+      padding: 10px 8px 2px;
     }
 
     .map-caption {
-      font-size: 17px;
-      line-height: 1.55;
-      color: var(--muted);
       margin: 0;
+      font-size: clamp(14px, 1.35vw, 18px);
+      line-height: 1.45;
+      color: var(--muted);
     }
 
     .boundary {
-      margin: 12px 0 0;
+      margin-top: 8px;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: clamp(13px, 1.15vw, 16px);
+      line-height: 1.45;
       color: var(--accent);
     }
 
     .portal {
-      margin-top: 22px;
-    }
-
-    .portal-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+      gap: 12px;
+      align-content: start;
     }
 
     .portal-item {
-      background: rgba(255,255,255,0.86);
+      background: rgba(255,255,255,0.88);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 22px 20px 20px;
-      box-shadow: var(--shadow);
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-      min-height: 138px;
+      border-radius: 20px;
+      padding: 14px 16px 13px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .portal-item:hover {
-      transform: translateY(-1px);
-      border-color: #cabcae;
-      background: #fffdfa;
+      justify-content: flex-start;
+      min-height: 0;
     }
 
     .portal-item.large {
@@ -188,43 +187,42 @@
 
     .portal-kicker {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--muted-soft);
-      margin-bottom: 10px;
+      margin-bottom: 7px;
     }
 
     .portal-item h3 {
       margin: 0;
-      font-size: 27px;
-      line-height: 1.06;
+      font-size: clamp(20px, 2vw, 28px);
+      line-height: 1.02;
       font-weight: 400;
       color: var(--accent);
     }
 
     .portal-item p {
-      margin: 12px 0 0;
+      margin: 8px 0 0;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: clamp(12px, 1vw, 14px);
+      line-height: 1.45;
       color: var(--muted);
-      max-width: 34ch;
     }
 
     .closing {
-      margin-top: 16px;
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.2em;
       color: var(--muted-soft);
+      padding-bottom: 10px;
     }
 
     @media (max-width: 980px) {
       .site {
-        padding: 0 14px 24px;
+        grid-template-rows: auto auto auto auto auto auto;
       }
 
       .topbar {
@@ -233,27 +231,12 @@
       }
 
       .nav {
-        justify-content: flex-start;
         gap: 12px 16px;
         font-size: 14px;
       }
 
-      h1 {
-        font-size: 38px;
-        max-width: 760px;
-      }
-
-      .hero-sub {
-        font-size: 16px;
-        max-width: 640px;
-      }
-
-      .map-frame {
-        aspect-ratio: 16 / 6.3;
-      }
-
-      .portal-grid {
-        grid-template-columns: 1fr;
+      .portal {
+        grid-template-columns: 1fr 1fr;
       }
 
       .portal-item.large,
@@ -261,76 +244,82 @@
         grid-column: auto;
       }
 
-      .portal-item {
-        min-height: auto;
+      .map-frame {
+        height: clamp(120px, 22vh, 180px);
       }
     }
 
     @media (max-width: 640px) {
-      .hero {
-        padding-top: 24px;
+      .site {
+        padding: 0 12px;
+        gap: 8px;
       }
 
-      h1 {
-        font-size: 30px;
+      .topbar {
+        padding: 10px 0 8px;
+      }
+
+      .nav {
+        gap: 10px 12px;
+        font-size: 13px;
       }
 
       .hero-sub {
-        font-size: 14px;
+        margin-top: 6px;
       }
 
       .center-panel {
-        padding: 10px;
-        border-radius: 18px;
+        padding: 8px;
+        border-radius: 16px;
       }
 
       .map-frame {
+        height: 140px;
         border-radius: 12px;
       }
 
-      .map-caption {
-        font-size: 14px;
-      }
-
-      .boundary {
-        font-size: 14px;
+      .portal {
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
 
       .portal-item {
-        padding: 18px 16px 16px;
-        border-radius: 18px;
+        padding: 13px 14px 12px;
+        border-radius: 16px;
       }
 
-      .portal-item h3 {
-        font-size: 22px;
+      .portal-kicker {
+        font-size: 9px;
       }
 
-      .portal-item p {
-        font-size: 13px;
+      .closing {
+        font-size: 10px;
+        letter-spacing: 0.16em;
       }
     }
   </style>
 </head>
 <body>
-  <div class="site">
-    <header class="topbar">
-      <div class="brand">HET OERPAD</div>
-      <nav class="nav">
-        <a href="#">The Idea</a>
-        <a href="#">Phase 1</a>
-        <a href="#">Updates</a>
-        <a href="#">Support</a>
-        <a href="#">About</a>
-      </nav>
-    </header>
+  <div class="page">
+    <div class="site">
+      <header class="topbar">
+        <div class="brand">HET OERPAD</div>
+        <nav class="nav">
+          <a href="#">The Idea</a>
+          <a href="#">Phase 1</a>
+          <a href="#">Updates</a>
+          <a href="#">Support</a>
+          <a href="#">About</a>
+        </nav>
+      </header>
 
-    <main class="hero">
-      <h1>Een gedeeld menselijk begin, zichtbaar gemaakt over generaties heen</h1>
-
-      <p class="hero-sub">
-        Een langetermijnvisie rond een fysieke structuur langs de vroege
-        migratieroutes van de mens uit Afrika.
-      </p>
+      <section class="hero">
+        <h1>Een gedeeld menselijk begin, zichtbaar gemaakt over generaties heen</h1>
+        <p class="hero-sub">
+          Een langetermijnvisie rond een fysieke structuur langs de vroege
+          migratieroutes van de mens uit Afrika.
+        </p>
+      </section>
 
       <section class="center-panel" aria-label="Kern">
         <div class="map-frame">
@@ -366,51 +355,39 @@
       </section>
 
       <section class="portal" aria-label="Hoofdnavigatie">
-        <div class="portal-grid">
-          <a class="portal-item large" href="#">
-            <div>
-              <div class="portal-kicker">Betekenis</div>
-              <h3>The Idea</h3>
-              <p>De kern van het project, het gedeelde begin en de langetermijnbetekenis.</p>
-            </div>
-          </a>
+        <a class="portal-item large" href="#">
+          <div class="portal-kicker">Betekenis</div>
+          <h3>The Idea</h3>
+          <p>De kern van het project, het gedeelde begin en de langetermijnbetekenis.</p>
+        </a>
 
-          <a class="portal-item large" href="#">
-            <div>
-              <div class="portal-kicker">Opbouw</div>
-              <h3>Phase 1</h3>
-              <p>Wat nu wordt opgebouwd, waarom deze fase nodig is en wat ze moet opleveren.</p>
-            </div>
-          </a>
+        <a class="portal-item large" href="#">
+          <div class="portal-kicker">Opbouw</div>
+          <h3>Phase 1</h3>
+          <p>Wat nu wordt opgebouwd, waarom deze fase nodig is en wat ze moet opleveren.</p>
+        </a>
 
-          <a class="portal-item large" href="#">
-            <div>
-              <div class="portal-kicker">Ritme</div>
-              <h3>Updates</h3>
-              <p>Publieke voortgang, maandritme en zichtbare werksporen.</p>
-            </div>
-          </a>
+        <a class="portal-item large" href="#">
+          <div class="portal-kicker">Ritme</div>
+          <h3>Updates</h3>
+          <p>Publieke voortgang, maandritme en zichtbare werksporen.</p>
+        </a>
 
-          <a class="portal-item medium" href="#">
-            <div>
-              <div class="portal-kicker">Deelname</div>
-              <h3>Support</h3>
-              <p>Hoe steun fase 1 helpt zonder druk of overdrijving.</p>
-            </div>
-          </a>
+        <a class="portal-item medium" href="#">
+          <div class="portal-kicker">Deelname</div>
+          <h3>Support</h3>
+          <p>Hoe steun fase 1 helpt zonder druk of overdrijving.</p>
+        </a>
 
-          <a class="portal-item medium" href="#">
-            <div>
-              <div class="portal-kicker">Onderbouw</div>
-              <h3>About</h3>
-              <p>De stabiele basis: initiatief, principes en verantwoordelijkheid.</p>
-            </div>
-          </a>
-        </div>
+        <a class="portal-item medium" href="#">
+          <div class="portal-kicker">Onderbouw</div>
+          <h3>About</h3>
+          <p>De stabiele basis: initiatief, principes en verantwoordelijkheid.</p>
+        </a>
       </section>
 
       <div class="closing">Helderheid vóór schaal. Ritme vóór belofte.</div>
-    </main>
+    </div>
   </div>
 </body>
 </html>
