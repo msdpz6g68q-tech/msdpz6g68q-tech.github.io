@@ -8,13 +8,14 @@
     :root {
       --bg: #f5f1eb;
       --surface: #ffffff;
-      --surface-soft: #f1ece5;
-      --border: #ddd4ca;
+      --surface-soft: #f1ece6;
+      --border: #ded5cb;
       --text: #2d2823;
       --muted: #655d54;
-      --muted-soft: #8a8177;
-      --accent: #3b352f;
+      --muted-soft: #8b8177;
+      --accent: #38322d;
       --max: 1180px;
+      --shadow: 0 10px 30px rgba(55, 46, 40, 0.04);
     }
 
     * {
@@ -63,9 +64,9 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 24px;
+      gap: 26px;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       color: var(--muted);
     }
 
@@ -78,75 +79,76 @@
     }
 
     .hero {
-      padding: 28px 0 14px;
+      padding: 34px 0 12px;
       text-align: center;
     }
 
     h1 {
       margin: 0 auto;
-      max-width: 900px;
-      font-size: 54px;
-      line-height: 1.04;
+      max-width: 950px;
+      font-size: 50px;
+      line-height: 1.03;
       font-weight: 400;
-      color: var(--accent);
       letter-spacing: -0.02em;
+      color: var(--accent);
     }
 
     .hero-sub {
-      max-width: 760px;
-      margin: 18px auto 0;
-      font-size: 17px;
-      line-height: 1.7;
+      max-width: 720px;
+      margin: 16px auto 0;
+      font-size: 18px;
+      line-height: 1.68;
       color: var(--muted);
     }
 
-    .map-shell {
-      margin: 26px auto 0;
+    .center-panel {
       max-width: 960px;
-      background: var(--surface-soft);
+      margin: 24px auto 0;
+      background: rgba(255,255,255,0.52);
       border: 1px solid var(--border);
       border-radius: 26px;
       padding: 16px;
     }
 
     .map-frame {
-      position: relative;
       border: 1px solid var(--border);
       border-radius: 18px;
       overflow: hidden;
       background:
         radial-gradient(circle at 30% 35%, rgba(120, 113, 108, 0.08), transparent 28%),
-        radial-gradient(circle at 72% 48%, rgba(120, 113, 108, 0.06), transparent 24%),
+        radial-gradient(circle at 72% 48%, rgba(120, 113, 108, 0.05), transparent 24%),
         linear-gradient(180deg, #faf8f5 0%, #ede8e0 100%);
-      aspect-ratio: 16 / 5.1;
+      aspect-ratio: 16 / 4.3;
     }
 
     .map-svg {
+      display: block;
       width: 100%;
       height: 100%;
-      display: block;
+    }
+
+    .center-text {
+      padding: 14px 8px 4px;
+      text-align: center;
     }
 
     .map-caption {
-      margin-top: 12px;
-      text-align: center;
-      font-size: 15px;
+      font-size: 17px;
       line-height: 1.55;
       color: var(--muted);
+      margin: 0;
     }
 
     .boundary {
-      margin-top: 18px;
-      text-align: center;
+      margin: 12px 0 0;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.6;
       color: var(--accent);
     }
 
     .status {
-      margin-top: 8px;
-      text-align: center;
+      margin: 8px 0 0;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 13px;
       line-height: 1.6;
@@ -163,7 +165,7 @@
 
     .chip {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.75);
       border-radius: 999px;
       padding: 7px 11px;
       font-family: Arial, Helvetica, sans-serif;
@@ -171,64 +173,71 @@
       color: var(--muted);
     }
 
-    .cards {
-      margin-top: 20px;
+    .portal {
+      margin-top: 22px;
     }
 
-    .cards-top,
-    .cards-bottom {
+    .portal-grid {
       display: grid;
+      grid-template-columns: repeat(12, 1fr);
       gap: 14px;
     }
 
-    .cards-top {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .cards-bottom {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 720px;
-      margin: 14px auto 0;
-    }
-
-    .card {
-      display: block;
-      background: rgba(255,255,255,0.88);
+    .portal-item {
+      background: rgba(255,255,255,0.86);
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 20px 18px 18px;
-      transition: border-color 0.18s ease, transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-      box-shadow: 0 6px 18px rgba(61, 52, 47, 0.03);
+      border-radius: 24px;
+      padding: 22px 20px 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      min-height: 138px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .card:hover {
-      border-color: #cdbfb1;
-      background: #fffdfa;
+    .portal-item:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(61, 52, 47, 0.05);
+      border-color: #cabcae;
+      background: #fffdfa;
     }
 
-    .card h3 {
+    .portal-item.large {
+      grid-column: span 4;
+    }
+
+    .portal-item.medium {
+      grid-column: span 6;
+    }
+
+    .portal-kicker {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-soft);
+      margin-bottom: 10px;
+    }
+
+    .portal-item h3 {
       margin: 0;
-      font-size: 20px;
-      line-height: 1.2;
+      font-size: 27px;
+      line-height: 1.06;
       font-weight: 400;
       color: var(--accent);
     }
 
-    .card p {
-      margin: 10px 0 0;
+    .portal-item p {
+      margin: 12px 0 0;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      line-height: 1.6;
+      font-size: 14px;
+      line-height: 1.65;
       color: var(--muted);
-      max-width: 290px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 34ch;
     }
 
     .closing {
-      margin-top: 14px;
+      margin-top: 16px;
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 11px;
@@ -243,8 +252,8 @@
       }
 
       .topbar {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
       }
 
       .nav {
@@ -259,27 +268,31 @@
       }
 
       .hero-sub {
-        font-size: 15px;
+        font-size: 16px;
         max-width: 640px;
       }
 
-      .cards-top {
-        grid-template-columns: 1fr;
-      }
-
-      .cards-bottom {
-        grid-template-columns: 1fr;
-        max-width: none;
-      }
-
       .map-frame {
-        aspect-ratio: 16 / 7;
+        aspect-ratio: 16 / 6.3;
+      }
+
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portal-item.large,
+      .portal-item.medium {
+        grid-column: auto;
+      }
+
+      .portal-item {
+        min-height: auto;
       }
     }
 
     @media (max-width: 640px) {
       .hero {
-        padding-top: 22px;
+        padding-top: 24px;
       }
 
       h1 {
@@ -290,13 +303,17 @@
         font-size: 14px;
       }
 
-      .map-shell {
+      .center-panel {
         padding: 10px;
         border-radius: 18px;
       }
 
       .map-frame {
         border-radius: 12px;
+      }
+
+      .map-caption {
+        font-size: 14px;
       }
 
       .boundary {
@@ -307,12 +324,17 @@
         font-size: 12px;
       }
 
-      .card h3 {
-        font-size: 18px;
+      .portal-item {
+        padding: 18px 16px 16px;
+        border-radius: 18px;
       }
 
-      .card p {
-        font-size: 12px;
+      .portal-item h3 {
+        font-size: 22px;
+      }
+
+      .portal-item p {
+        font-size: 13px;
       }
     }
   </style>
@@ -338,7 +360,7 @@
         migratieroutes van de mens uit Afrika.
       </p>
 
-      <section class="map-shell" aria-label="Migratieroutes">
+      <section class="center-panel" aria-label="Kern">
         <div class="map-frame">
           <svg class="map-svg" viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <g fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -365,62 +387,67 @@
           </svg>
         </div>
 
-        <div class="map-caption">
-          De mensheid begint niet bij verschil, maar bij een gedeelde oorsprong.
+        <div class="center-text">
+          <p class="map-caption">De mensheid begint niet bij verschil, maar bij een gedeelde oorsprong.</p>
+          <div class="boundary">Geen politiek project. Geen commercieel project. Geen toeristisch product.</div>
+          <div class="status">Nu in fase 1: ontwerp, onderbouwing en publieke opbouw.</div>
+
+          <div class="chips">
+            <span class="chip">Niet commercieel</span>
+            <span class="chip">Niet politiek</span>
+            <span class="chip">Fase 1</span>
+            <span class="chip">Publieke voortgang</span>
+            <span class="chip">Thinking Culture</span>
+            <span class="chip">Over generaties heen</span>
+          </div>
         </div>
       </section>
 
-      <div class="boundary">
-        Geen politiek project. Geen commercieel project. Geen toeristisch product.
-      </div>
-
-      <div class="status">
-        Nu in fase 1: ontwerp, onderbouwing en publieke opbouw.
-      </div>
-
-      <div class="chips">
-        <span class="chip">Niet commercieel</span>
-        <span class="chip">Niet politiek</span>
-        <span class="chip">Fase 1</span>
-        <span class="chip">Publieke voortgang</span>
-        <span class="chip">Thinking Culture</span>
-        <span class="chip">Over generaties heen</span>
-      </div>
-
-      <section class="cards" aria-label="Hoofdnavigatie">
-        <div class="cards-top">
-          <a class="card" href="#">
-            <h3>The Idea</h3>
-            <p>De kern van het project, het gedeelde begin en de langetermijnbetekenis.</p>
+      <section class="portal" aria-label="Hoofdnavigatie">
+        <div class="portal-grid">
+          <a class="portal-item large" href="#">
+            <div>
+              <div class="portal-kicker">Betekenis</div>
+              <h3>The Idea</h3>
+              <p>De kern van het project, het gedeelde begin en de langetermijnbetekenis.</p>
+            </div>
           </a>
 
-          <a class="card" href="#">
-            <h3>Phase 1</h3>
-            <p>Wat nu wordt opgebouwd, waarom deze fase nodig is en wat ze moet opleveren.</p>
+          <a class="portal-item large" href="#">
+            <div>
+              <div class="portal-kicker">Opbouw</div>
+              <h3>Phase 1</h3>
+              <p>Wat nu wordt opgebouwd, waarom deze fase nodig is en wat ze moet opleveren.</p>
+            </div>
           </a>
 
-          <a class="card" href="#">
-            <h3>Updates</h3>
-            <p>Publieke voortgang, maandritme en zichtbare werksporen.</p>
-          </a>
-        </div>
-
-        <div class="cards-bottom">
-          <a class="card" href="#">
-            <h3>Support</h3>
-            <p>Hoe steun fase 1 helpt zonder druk of overdrijving.</p>
+          <a class="portal-item large" href="#">
+            <div>
+              <div class="portal-kicker">Ritme</div>
+              <h3>Updates</h3>
+              <p>Publieke voortgang, maandritme en zichtbare werksporen.</p>
+            </div>
           </a>
 
-          <a class="card" href="#">
-            <h3>About</h3>
-            <p>De stabiele basis: initiatief, principes en verantwoordelijkheid.</p>
+          <a class="portal-item medium" href="#">
+            <div>
+              <div class="portal-kicker">Deelname</div>
+              <h3>Support</h3>
+              <p>Hoe steun fase 1 helpt zonder druk of overdrijving.</p>
+            </div>
+          </a>
+
+          <a class="portal-item medium" href="#">
+            <div>
+              <div class="portal-kicker">Onderbouw</div>
+              <h3>About</h3>
+              <p>De stabiele basis: initiatief, principes en verantwoordelijkheid.</p>
+            </div>
           </a>
         </div>
       </section>
 
-      <div class="closing">
-        Helderheid vóór schaal. Ritme vóór belofte.
-      </div>
+      <div class="closing">Helderheid vóór schaal. Ritme vóór belofte.</div>
     </main>
   </div>
 </body>
