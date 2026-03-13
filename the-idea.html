@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Idea — Het Oerpad</title>
+  <style>
+    :root {
+      --bg: #f6f2ec;
+      --panel: rgba(255, 255, 255, 0.42);
+      --line: #ded6cc;
+      --line-soft: #e9e2d9;
+      --text: #2f2924;
+      --muted: #675f57;
+      --muted-soft: #8a8178;
+      --accent: #38322d;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px 32px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 0 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 26px;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav a {
+      opacity: 0.72;
+      transition: opacity 0.18s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      opacity: 1;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 34px 0 10px;
+    }
+
+    .eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 auto;
+      max-width: 860px;
+      font-size: clamp(32px, 4.2vw, 60px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      max-width: 700px;
+      margin: 18px auto 0;
+      font-size: clamp(15px, 1.3vw, 19px);
+      line-height: 1.58;
+      color: var(--muted);
+    }
+
+    .content {
+      max-width: 940px;
+      margin: 28px auto 0;
+      display: grid;
+      gap: 16px;
+    }
+
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px 28px;
+    }
+
+    .section.subtle {
+      background: rgba(255,255,255,0.28);
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: clamp(24px, 2.2vw, 34px);
+      line-height: 1.08;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .section p {
+      margin: 0;
+      font-size: clamp(16px, 1.25vw, 18px);
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .section p + p {
+      margin-top: 14px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .next-link {
+      margin-top: 8px;
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.78;
+    }
+
+    .next-link:hover {
+      opacity: 1;
+    }
+
+    .closing {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--muted-soft);
+      padding: 20px 0 8px;
+    }
+
+    @media (max-width: 900px) {
+      .site {
+        padding: 0 16px 24px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0 14px;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        font-size: 12px;
+      }
+
+      .content {
+        margin-top: 22px;
+      }
+
+      .section {
+        padding: 22px 20px;
+        border-radius: 22px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site {
+        padding: 0 12px 18px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .section {
+        padding: 18px 16px;
+        border-radius: 18px;
+      }
+
+      .closing {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="topbar">
+      <a class="brand" href="index.html">HET OERPAD</a>
+      <nav class="nav">
+        <a class="active" href="the-idea.html">The Idea</a>
+        <a href="#">Phase 1</a>
+        <a href="#">Updates</a>
+        <a href="#">Support</a>
+        <a href="#">About</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">The Idea</div>
+      <h1>De mens begint niet bij verschil</h1>
+      <p class="hero-sub">
+        Het Oerpad vertrekt vanuit een gedeeld menselijk begin dat ouder is dan landen,
+        belangen en ideologieën.
+      </p>
+    </section>
+
+    <main class="content">
+      <section class="section">
+        <h2>The Starting Point</h2>
+        <p>De mens kijkt zelden naar de mens als mens.</p>
+        <p>Meestal kijkt hij eerst naar land, volk, religie, cultuur, geschiedenis of belang. Daardoor begint het beeld van de mens al snel bij verschil.</p>
+        <p>Toch begint de mensheid niet bij verschil. Zij begint bij een gedeelde oorsprong. Dat is geen ideaal, maar een werkelijkheid.</p>
+        <p>Daar begint Het Oerpad.</p>
+      </section>
+
+      <section class="section">
+        <h2>The Proposal</h2>
+        <p>Het Oerpad is het voorstel om een fysieke structuur te ontwikkelen langs de vroege migratieroutes van de mens uit Afrika.</p>
+        <p>Het wil die gedeelde oorsprong opnieuw fysiek zichtbaar maken. Niet om verschillen uit te wissen, wel om te herstellen hoe die verschillen worden begrepen.</p>
+        <p>Het is een vorm van vredesarchitectuur op lange termijn.</p>
+      </section>
+
+      <div class="two-col">
+        <section class="section subtle">
+          <h2>Peace Architecture</h2>
+          <p>Vrede ontstaat niet alleen uit goede bedoelingen. Ze hangt ook samen met de vormen, plaatsen en omstandigheden waarin mensen elkaar ontmoeten.</p>
+          <p>Daarom wordt Het Oerpad opgevat als vredesarchitectuur.</p>
+        </section>
+
+        <section class="section subtle">
+          <h2>Across Generations</h2>
+          <p>Het Oerpad is niet bedoeld voor één generatie. Een gedeeld menselijk begin is niet tijdelijk. Daarom mag de vorm ervan niet alleen voor het moment worden bedacht.</p>
+        </section>
+      </div>
+
+      <section class="section subtle">
+        <h2>Non-Commercial & Non-Political</h2>
+        <p>Het Oerpad is geen commercieel project. Het is ook geen politiek project.</p>
+        <p>Niet winst. Niet macht. Niet mobilisatie. Wel een gedeeld menselijk begin dat aan die logica voorafgaat.</p>
+      </section>
+
+      <section class="section">
+        <h2>Thinking Culture</h2>
+        <p>Het Oerpad vraagt om een manier van denken die groot durft te denken zonder zichzelf te overschatten.</p>
+        <p>Thinking Culture betekent hier dat denken geen versiering is, maar bescherming. Bescherming tegen grootspraak. Bescherming tegen zelfbedrog.</p>
+        <p>Alleen wat de druk van waarheid, werkelijkheid en tijd kan verdragen, mag blijven staan.</p>
+      </section>
+
+      <section class="section">
+        <h2>Next Steps</h2>
+        <p>Het Oerpad begint niet met aanleg, maar met ontwerp.</p>
+        <p>Daarom staat fase 1 in het teken van uitwerken, toetsen en structureren. Niet om het idee kleiner te maken, wel om het sterk genoeg te maken voor wat later moet volgen.</p>
+        <a class="next-link" href="#">Volgende stap: Phase 1</a>
+      </section>
+    </main>
+
+    <div class="closing">Helderheid vóór schaal. Ritme vóór belofte.</div>
+  </div>
+</body>
+</html>
