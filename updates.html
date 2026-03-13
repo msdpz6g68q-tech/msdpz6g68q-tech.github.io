@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Updates — Het Oerpad</title>
+  <style>
+    :root {
+      --bg: #f6f2ec;
+      --panel: rgba(255, 255, 255, 0.42);
+      --line: #ded6cc;
+      --text: #2f2924;
+      --muted: #5d554d;
+      --muted-soft: #847b72;
+      --accent: #38322d;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 24px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 0 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav a {
+      opacity: 0.72;
+      transition: opacity 0.18s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      opacity: 1;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 22px 0 8px;
+    }
+
+    .eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: clamp(30px, 3.4vw, 48px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      max-width: 660px;
+      margin: 12px auto 0;
+      font-size: clamp(15px, 1.08vw, 17px);
+      line-height: 1.46;
+      color: var(--muted);
+    }
+
+    .status-band {
+      max-width: 900px;
+      margin: 18px auto 0;
+      background: rgba(255,255,255,0.30);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .status-label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+    }
+
+    .status-text {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .updates-list {
+      max-width: 900px;
+      margin: 12px auto 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .update-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .update-meta {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .update-date {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      margin-bottom: 8px;
+    }
+
+    .update-tag {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(255,255,255,0.55);
+    }
+
+    .update-body h2 {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 1.75vw, 29px);
+      line-height: 1.02;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .update-body p {
+      margin: 0;
+      max-width: 58ch;
+      font-size: clamp(15px, 1vw, 16px);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .update-body p + p {
+      margin-top: 8px;
+    }
+
+    .band {
+      max-width: 900px;
+      margin: 12px auto 0;
+      background: rgba(255,255,255,0.30);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .band-title {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.02;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .band-text {
+      margin: 7px 0 0;
+      max-width: 660px;
+      font-size: 15px;
+      line-height: 1.52;
+      color: var(--muted);
+    }
+
+    .band-link {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.86;
+      white-space: nowrap;
+    }
+
+    .band-link:hover {
+      opacity: 1;
+    }
+
+    .closing {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--muted-soft);
+      padding: 16px 0 8px;
+    }
+
+    @media (max-width: 900px) {
+      .site {
+        padding: 0 16px 22px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0 14px;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .status-band,
+      .update-card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .band {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site {
+        padding: 0 12px 18px;
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .status-band,
+      .update-card,
+      .band {
+        border-radius: 16px;
+        padding: 15px 14px;
+      }
+
+      .band-title {
+        font-size: 23px;
+      }
+
+      .band-text,
+      .status-text,
+      .update-body p {
+        font-size: 14px;
+      }
+
+      .closing {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="topbar">
+      <a class="brand" href="index.html">HET OERPAD</a>
+      <nav class="nav">
+        <a href="the-idea.html">The Idea</a>
+        <a href="phase-1.html">Phase 1</a>
+        <a class="active" href="updates.html">Updates</a>
+        <a href="#">Support</a>
+        <a href="#">About</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Updates</div>
+      <h1>Publieke voortgang als bewijs</h1>
+      <p class="hero-sub">
+        Updates tonen niet dat iets af is. Ze tonen dat het werk echt gebeurt,
+        in ritme, in orde en onder zichtbare druk van werkelijkheid.
+      </p>
+    </section>
+
+    <section class="status-band">
+      <div class="status-label">Status Snapshot</div>
+      <div class="status-text">
+        Fase 1 loopt. De focus ligt nu op het scherper maken van de projectbasis,
+        het vastzetten van taal en structuur, en het publiek zichtbaar maken van
+        werksporen zonder grootspraak.
+      </div>
+    </section>
+
+    <main class="updates-list">
+      <section class="update-card">
+        <div class="update-meta">
+          <div class="update-date">Maart 2026</div>
+          <div class="update-tag">Structuur</div>
+        </div>
+        <div class="update-body">
+          <h2>De basis van de site is neergezet</h2>
+          <p>De homepage, The Idea en Phase 1 zijn uitgewerkt als eerste vaste laag van de publieke structuur.</p>
+          <p>Het doel hiervan is niet afwerking veinzen, maar een stabiele vorm neerzetten waarop de rest verder kan bouwen.</p>
+        </div>
+      </section>
+
+      <section class="update-card">
+        <div class="update-meta">
+          <div class="update-date">Maart 2026</div>
+          <div class="update-tag">Taal</div>
+        </div>
+        <div class="update-body">
+          <h2>De projecttaal is verscherpt</h2>
+          <p>Vage of ideologische formuleringen zijn verder teruggedrongen. De taal moet direct, natuurlijk en toetsbaar blijven.</p>
+          <p>Dat is geen stijlvoorkeur alleen, maar bescherming tegen ruis, marketingtoon en morele mist.</p>
+        </div>
+      </section>
+
+      <section class="update-card">
+        <div class="update-meta">
+          <div class="update-date">Maart 2026</div>
+          <div class="update-tag">Ritme</div>
+        </div>
+        <div class="update-body">
+          <h2>Publieke voortgang krijgt vaste functie</h2>
+          <p>Updates worden niet gebruikt als promotie, maar als bewijs van ritme en serieuze opbouw.</p>
+          <p>Wat zichtbaar wordt gemaakt moet niet indrukwekkend lijken, maar werkelijk gebeurd zijn.</p>
+        </div>
+      </section>
+
+      <section class="update-card">
+        <div class="update-meta">
+          <div class="update-date">Komend</div>
+          <div class="update-tag">Volgende focus</div>
+        </div>
+        <div class="update-body">
+          <h2>Support en About worden de volgende vaste pagina’s</h2>
+          <p>De volgende stap is het helder uitwerken van hoe steun fase 1 dient, en welke principes en verantwoordelijkheden de basis van het project dragen.</p>
+        </div>
+      </section>
+    </main>
+
+    <section class="band">
+      <div>
+        <h2 class="band-title">Next Step</h2>
+        <p class="band-text">
+          Wanneer publieke voortgang een vast ritme krijgt, wordt steun begrijpelijker en geloofwaardiger. Daarom ligt de volgende logische stap bij Support.
+        </p>
+      </div>
+      <a class="band-link" href="#">Volgende stap: Support</a>
+    </section>
+
+    <div class="closing">Helderheid vóór schaal. Ritme vóór belofte.</div>
+  </div>
+</body>
+</html>
