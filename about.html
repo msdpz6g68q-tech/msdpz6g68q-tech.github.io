@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Het Oerpad</title>
+  <style>
+    :root {
+      --bg: #f6f2ec;
+      --panel: rgba(255, 255, 255, 0.42);
+      --line: #ded6cc;
+      --text: #2f2924;
+      --muted: #5d554d;
+      --muted-soft: #847b72;
+      --accent: #38322d;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 24px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 0 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav a {
+      opacity: 0.72;
+      transition: opacity 0.18s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      opacity: 1;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 22px 0 8px;
+    }
+
+    .eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: clamp(30px, 3.4vw, 48px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      max-width: 660px;
+      margin: 12px auto 0;
+      font-size: clamp(15px, 1.08vw, 17px);
+      line-height: 1.46;
+      color: var(--muted);
+    }
+
+    .grid {
+      max-width: 900px;
+      margin: 18px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      min-height: 0;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 1.75vw, 29px);
+      line-height: 1.02;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .card p {
+      margin: 0;
+      max-width: 35ch;
+      font-size: clamp(15px, 1vw, 16px);
+      line-height: 1.52;
+      color: var(--muted);
+    }
+
+    .card p + p {
+      margin-top: 8px;
+    }
+
+    .band {
+      max-width: 900px;
+      margin: 12px auto 0;
+      background: rgba(255,255,255,0.30);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .band-title {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.02;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .band-text {
+      margin: 7px 0 0;
+      max-width: 660px;
+      font-size: 15px;
+      line-height: 1.52;
+      color: var(--muted);
+    }
+
+    .band-link {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.86;
+      white-space: nowrap;
+    }
+
+    .band-link:hover {
+      opacity: 1;
+    }
+
+    .closing {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--muted-soft);
+      padding: 16px 0 8px;
+    }
+
+    @media (max-width: 900px) {
+      .site {
+        padding: 0 16px 22px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0 14px;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .card {
+        padding: 18px 16px 16px;
+      }
+
+      .band {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site {
+        padding: 0 12px 18px;
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .card {
+        padding: 16px 14px 14px;
+        border-radius: 16px;
+      }
+
+      .band {
+        border-radius: 16px;
+        padding: 15px 14px;
+      }
+
+      .band-title {
+        font-size: 23px;
+      }
+
+      .band-text {
+        font-size: 14px;
+      }
+
+      .closing {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="topbar">
+      <a class="brand" href="index.html">HET OERPAD</a>
+      <nav class="nav">
+        <a href="the-idea.html">The Idea</a>
+        <a href="phase-1.html">Phase 1</a>
+        <a href="updates.html">Updates</a>
+        <a href="support.html">Support</a>
+        <a class="active" href="about.html">About</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">About</div>
+      <h1>Initiatief, principes en verantwoordelijkheid</h1>
+      <p class="hero-sub">
+        Deze pagina beschrijft niet alleen wie dit project draagt, maar ook
+        op welke basis het wil blijven staan.
+      </p>
+    </section>
+
+    <main class="grid">
+      <section class="card">
+        <h2>The Basis</h2>
+        <p>Het Oerpad is een initiatief dat vertrekt vanuit een gedeeld menselijk begin en de vraag hoe dat begin opnieuw zichtbaar en begrijpelijk gemaakt kan worden over generaties heen.</p>
+        <p>De basis van het project ligt niet in snelheid of schaal, maar in ernst, structuur en verantwoordelijkheid.</p>
+      </section>
+
+      <section class="card">
+        <h2>What This Is</h2>
+        <p>Het Oerpad is een ontwerp- en opbouwproject in fase 1.</p>
+        <p>Dat betekent: uitwerken, toetsen, structureren, taal scherper maken, publieke voortgang zichtbaar maken en draagkracht voorbereiden voor later.</p>
+      </section>
+
+      <section class="card">
+        <h2>What This Is Not</h2>
+        <p>Het Oerpad is geen commercieel project. Geen politiek project. Geen toeristisch product.</p>
+        <p>Het is ook geen forum voor chaos, geen merkverhaal en geen morele campagne vermomd als visie.</p>
+      </section>
+
+      <section class="card">
+        <h2>Responsibility</h2>
+        <p>Een project van deze schaal vraagt bescherming tegen overdrijving, grootspraak en zelfbedrog.</p>
+        <p>Daarom moet verantwoordelijkheid niet achteraf worden toegevoegd, maar van bij het begin deel uitmaken van de vorm.</p>
+      </section>
+
+      <section class="card">
+        <h2>Thinking Culture</h2>
+        <p>Het project wil ruimte maken voor denken dat serieus is, toetsbaar blijft en niet buigt voor snelheid of effectbejag.</p>
+        <p>Niet alles wat groot klinkt, is sterk. Alleen wat druk van tijd en werkelijkheid kan dragen, mag blijven staan.</p>
+      </section>
+
+      <section class="card">
+        <h2>Why This Page Exists</h2>
+        <p>About is hier geen decoratieve pagina. Ze moet de onderlaag tonen waarop de rest van de site rust.</p>
+        <p>Wie het project wil begrijpen, moet niet alleen de droom zien, maar ook de grenslijnen en de discipline eronder.</p>
+      </section>
+    </main>
+
+    <section class="band">
+      <div>
+        <h2 class="band-title">Foundation</h2>
+        <p class="band-text">
+          Wanneer betekenis, opbouw, ritme, steun en basis helder naast elkaar staan, krijgt het project een vorm die ernstiger is dan een losse gedachte en kalmer dan een campagne.
+        </p>
+      </div>
+      <a class="band-link" href="index.html">Terug naar Home</a>
+    </section>
+
+    <div class="closing">Helderheid vóór schaal. Ritme vóór belofte.</div>
+  </div>
+</body>
+</html>
