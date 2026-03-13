@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phase 1 — Het Oerpad</title>
+  <style>
+    :root {
+      --bg: #f6f2ec;
+      --panel: rgba(255, 255, 255, 0.42);
+      --line: #ded6cc;
+      --text: #2f2924;
+      --muted: #5d554d;
+      --muted-soft: #847b72;
+      --accent: #38322d;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 24px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 0 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav a {
+      opacity: 0.72;
+      transition: opacity 0.18s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      opacity: 1;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 22px 0 8px;
+    }
+
+    .eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: clamp(30px, 3.4vw, 48px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      max-width: 660px;
+      margin: 12px auto 0;
+      font-size: clamp(15px, 1.08vw, 17px);
+      line-height: 1.46;
+      color: var(--muted);
+    }
+
+    .grid {
+      max-width: 900px;
+      margin: 18px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      min-height: 0;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 1.75vw, 29px);
+      line-height: 1.02;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .card p {
+      margin: 0;
+      max-width: 35ch;
+      font-size: clamp(15px, 1vw, 16px);
+      line-height: 1.52;
+      color: var(--muted);
+    }
+
+    .card p + p {
+      margin-top: 8px;
+    }
+
+    .band {
+      max-width: 900px;
+      margin: 12px auto 0;
+      background: rgba(255,255,255,0.30);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .band-title {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.02;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .band-text {
+      margin: 7px 0 0;
+      max-width: 660px;
+      font-size: 15px;
+      line-height: 1.52;
+      color: var(--muted);
+    }
+
+    .band-link {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.86;
+      white-space: nowrap;
+    }
+
+    .band-link:hover {
+      opacity: 1;
+    }
+
+    .closing {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--muted-soft);
+      padding: 16px 0 8px;
+    }
+
+    @media (max-width: 900px) {
+      .site {
+        padding: 0 16px 22px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0 14px;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .card {
+        padding: 18px 16px 16px;
+      }
+
+      .band {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site {
+        padding: 0 12px 18px;
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .card {
+        padding: 16px 14px 14px;
+        border-radius: 16px;
+      }
+
+      .band {
+        border-radius: 16px;
+        padding: 15px 14px;
+      }
+
+      .band-title {
+        font-size: 23px;
+      }
+
+      .band-text {
+        font-size: 14px;
+      }
+
+      .closing {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="topbar">
+      <a class="brand" href="index.html">HET OERPAD</a>
+      <nav class="nav">
+        <a href="the-idea.html">The Idea</a>
+        <a class="active" href="phase-1.html">Phase 1</a>
+        <a href="#">Updates</a>
+        <a href="#">Support</a>
+        <a href="#">About</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Phase 1</div>
+      <h1>Ontwerp, onderbouwing en publieke opbouw</h1>
+      <p class="hero-sub">
+        Fase 1 gaat niet over bouwen in de fysieke wereld. Ze gaat over het idee
+        sterk genoeg maken om later gedragen te kunnen worden.
+      </p>
+    </section>
+
+    <main class="grid">
+      <section class="card">
+        <h2>What Phase 1 Is</h2>
+        <p>Fase 1 is de ontwerp- en opbouwfase van Het Oerpad.</p>
+        <p>Dat betekent: het idee scherper maken, de basis onderbouwen, de structuur vastzetten en publieke voortgang zichtbaar maken.</p>
+        <p>Niet bouwen om al te tonen dat het bestaat, maar werken zodat het later echt kan bestaan.</p>
+      </section>
+
+      <section class="card">
+        <h2>What Phase 1 Is Not</h2>
+        <p>Fase 1 is geen bouwfase. Geen toeristisch product. Geen campagne. Geen snelle lancering.</p>
+        <p>Ze is ook geen poging om te doen alsof de fysieke uitvoering al vandaag haalbaar moet zijn.</p>
+        <p>De horizon blijft groot, maar het werk nu moet nuchter zijn.</p>
+      </section>
+
+      <section class="card">
+        <h2>Main Goals</h2>
+        <p>De kern van fase 1 is drievoudig: inhoud verscherpen, vertrouwen opbouwen en draagkracht voorbereiden.</p>
+        <p>Daarvoor moeten begrippen duidelijk worden, structuur stabiel worden en publieke voortgang regelmatig zichtbaar worden.</p>
+      </section>
+
+      <section class="card">
+        <h2>Public Progress</h2>
+        <p>Publieke voortgang is geen bijzaak. Het is een vorm van bewijs.</p>
+        <p>Door ritme, updates en zichtbare werksporen groeit vertrouwen. Niet door grootspraak, maar door herhaalbare voortgang.</p>
+      </section>
+
+      <section class="card">
+        <h2>Deliverables</h2>
+        <p>Fase 1 moet tastbare uitkomsten hebben: een heldere projectbasis, vaste taal, uitgewerkte pagina’s, regelmatige updates en een eerste kring van mensen die begrijpen wat hier wordt opgebouwd.</p>
+        <p>Zonder deliverables wordt een groot idee snel mist.</p>
+      </section>
+
+      <section class="card">
+        <h2>Support Function</h2>
+        <p>Steun in fase 1 dient niet om een façade van succes te creëren, maar om rustig en serieus werk mogelijk te maken.</p>
+        <p>Support moet gekoppeld blijven aan duidelijkheid, niet aan druk of overdrijving.</p>
+      </section>
+    </main>
+
+    <section class="band">
+      <div>
+        <h2 class="band-title">Next Step</h2>
+        <p class="band-text">
+          Wanneer fase 1 goed staat, kunnen updates dienen als publiek ritme en bewijs. Van daaruit kan de site verder groeien zonder haar ernst te verliezen.
+        </p>
+      </div>
+      <a class="band-link" href="#">Volgende stap: Updates</a>
+    </section>
+
+    <div class="closing">Helderheid vóór schaal. Ritme vóór belofte.</div>
+  </div>
+</body>
+</html>
