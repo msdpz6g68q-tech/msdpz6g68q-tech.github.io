@@ -91,7 +91,7 @@
 
     .hero {
       text-align: center;
-      padding: 26px 0 6px;
+      padding: 26px 0 8px;
     }
 
     .eyebrow {
@@ -123,7 +123,7 @@
     }
 
     .content {
-      max-width: 930px;
+      max-width: 940px;
       margin: 22px auto 0;
       display: grid;
       gap: 12px;
@@ -132,12 +132,8 @@
     .section {
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 24px;
+      border-radius: 20px;
       padding: 22px 24px;
-    }
-
-    .section.subtle {
-      background: rgba(255,255,255,0.28);
     }
 
     .section h2 {
@@ -165,8 +161,36 @@
       gap: 12px;
     }
 
+    .next-band {
+      max-width: 940px;
+      margin: 14px auto 0;
+      background: rgba(255,255,255,0.32);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .next-band-title {
+      font-size: 28px;
+      line-height: 1.04;
+      font-weight: 400;
+      color: var(--accent);
+      margin: 0;
+    }
+
+    .next-band-text {
+      margin: 8px 0 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
     .next-link {
-      margin-top: 10px;
       display: inline-block;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 12px;
@@ -175,6 +199,7 @@
       text-transform: uppercase;
       color: var(--accent);
       opacity: 0.84;
+      white-space: nowrap;
     }
 
     .next-link:hover {
@@ -217,11 +242,17 @@
 
       .section {
         padding: 20px 18px;
-        border-radius: 20px;
+        border-radius: 18px;
       }
 
       .two-col {
         grid-template-columns: 1fr;
+      }
+
+      .next-band {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 18px;
       }
     }
 
@@ -237,6 +268,19 @@
       .section {
         padding: 16px 14px;
         border-radius: 16px;
+      }
+
+      .next-band {
+        border-radius: 16px;
+        padding: 16px 14px;
+      }
+
+      .next-band-title {
+        font-size: 24px;
+      }
+
+      .next-band-text {
+        font-size: 15px;
       }
 
       .closing {
@@ -285,19 +329,19 @@
       </section>
 
       <div class="two-col">
-        <section class="section subtle">
+        <section class="section">
           <h2>Peace Architecture</h2>
           <p>Vrede ontstaat niet alleen uit goede bedoelingen. Ze hangt ook samen met de vormen, plaatsen en omstandigheden waarin mensen elkaar ontmoeten.</p>
           <p>Daarom wordt Het Oerpad opgevat als vredesarchitectuur.</p>
         </section>
 
-        <section class="section subtle">
+        <section class="section">
           <h2>Across Generations</h2>
           <p>Het Oerpad is niet bedoeld voor één generatie. Een gedeeld menselijk begin is niet tijdelijk. Daarom mag de vorm ervan niet alleen voor het moment worden bedacht.</p>
         </section>
       </div>
 
-      <section class="section subtle">
+      <section class="section">
         <h2>Non-Commercial & Non-Political</h2>
         <p>Het Oerpad is geen commercieel project. Het is ook geen politiek project.</p>
         <p>Niet winst. Niet macht. Niet mobilisatie. Wel een gedeeld menselijk begin dat aan die logica voorafgaat.</p>
@@ -309,14 +353,17 @@
         <p>Thinking Culture betekent hier dat denken geen versiering is, maar bescherming. Bescherming tegen grootspraak. Bescherming tegen zelfbedrog.</p>
         <p>Alleen wat de druk van waarheid, werkelijkheid en tijd kan verdragen, mag blijven staan.</p>
       </section>
-
-      <section class="section">
-        <h2>Next Steps</h2>
-        <p>Het Oerpad begint niet met aanleg, maar met ontwerp.</p>
-        <p>Daarom staat fase 1 in het teken van uitwerken, toetsen en structureren. Niet om het idee kleiner te maken, wel om het sterk genoeg te maken voor wat later moet volgen.</p>
-        <a class="next-link" href="#">Volgende stap: Phase 1</a>
-      </section>
     </main>
+
+    <section class="next-band">
+      <div>
+        <h2 class="next-band-title">Next Steps</h2>
+        <p class="next-band-text">
+          Het Oerpad begint niet met aanleg, maar met ontwerp. Daarom staat fase 1 in het teken van uitwerken, toetsen en structureren. Niet om het idee kleiner te maken, wel om het sterk genoeg te maken voor wat later moet volgen.
+        </p>
+      </div>
+      <a class="next-link" href="#">Volgende stap: Phase 1</a>
+    </section>
 
     <div class="closing">Helderheid vóór schaal. Ritme vóór belofte.</div>
   </div>
