@@ -91,7 +91,7 @@
 
     .hero {
       text-align: center;
-      padding: 26px 0 8px;
+      padding: 26px 0 10px;
     }
 
     .eyebrow {
@@ -122,21 +122,23 @@
       color: var(--muted);
     }
 
-    .content {
+    .grid {
       max-width: 940px;
       margin: 22px auto 0;
       display: grid;
-      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
 
-    .section {
+    .card {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 20px;
       padding: 22px 24px;
+      min-height: 100%;
     }
 
-    .section h2 {
+    .card h2 {
       margin: 0 0 10px;
       font-size: clamp(23px, 2vw, 32px);
       line-height: 1.04;
@@ -144,27 +146,21 @@
       color: var(--accent);
     }
 
-    .section p {
+    .card p {
       margin: 0;
-      font-size: clamp(15px, 1.12vw, 17px);
-      line-height: 1.62;
+      font-size: clamp(15px, 1.08vw, 17px);
+      line-height: 1.6;
       color: var(--muted);
     }
 
-    .section p + p {
+    .card p + p {
       margin-top: 10px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
     }
 
     .next-band {
       max-width: 940px;
-      margin: 14px auto 0;
-      background: rgba(255,255,255,0.32);
+      margin: 16px auto 0;
+      background: rgba(255,255,255,0.30);
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 18px 22px;
@@ -175,17 +171,17 @@
     }
 
     .next-band-title {
+      margin: 0;
       font-size: 28px;
       line-height: 1.04;
       font-weight: 400;
       color: var(--accent);
-      margin: 0;
     }
 
     .next-band-text {
       margin: 8px 0 0;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.58;
       color: var(--muted);
       max-width: 760px;
     }
@@ -236,17 +232,14 @@
         padding-top: 22px;
       }
 
-      .content {
-        margin-top: 18px;
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
-      .section {
+      .card {
         padding: 20px 18px;
         border-radius: 18px;
-      }
-
-      .two-col {
-        grid-template-columns: 1fr;
       }
 
       .next-band {
@@ -265,7 +258,7 @@
         padding-top: 18px;
       }
 
-      .section {
+      .card {
         padding: 16px 14px;
         border-radius: 16px;
       }
@@ -312,8 +305,8 @@
       </p>
     </section>
 
-    <main class="content">
-      <section class="section">
+    <main class="grid">
+      <section class="card">
         <h2>The Starting Point</h2>
         <p>De mens kijkt zelden naar de mens als mens.</p>
         <p>Meestal kijkt hij eerst naar land, volk, religie, cultuur, geschiedenis of belang. Daardoor begint het beeld van de mens al snel bij verschil.</p>
@@ -321,33 +314,31 @@
         <p>Daar begint Het Oerpad.</p>
       </section>
 
-      <section class="section">
+      <section class="card">
         <h2>The Proposal</h2>
         <p>Het Oerpad is het voorstel om een fysieke structuur te ontwikkelen langs de vroege migratieroutes van de mens uit Afrika.</p>
         <p>Het wil die gedeelde oorsprong opnieuw fysiek zichtbaar maken. Niet om verschillen uit te wissen, wel om te herstellen hoe die verschillen worden begrepen.</p>
         <p>Het is een vorm van vredesarchitectuur op lange termijn.</p>
       </section>
 
-      <div class="two-col">
-        <section class="section">
-          <h2>Peace Architecture</h2>
-          <p>Vrede ontstaat niet alleen uit goede bedoelingen. Ze hangt ook samen met de vormen, plaatsen en omstandigheden waarin mensen elkaar ontmoeten.</p>
-          <p>Daarom wordt Het Oerpad opgevat als vredesarchitectuur.</p>
-        </section>
+      <section class="card">
+        <h2>Peace Architecture</h2>
+        <p>Vrede ontstaat niet alleen uit goede bedoelingen. Ze hangt ook samen met de vormen, plaatsen en omstandigheden waarin mensen elkaar ontmoeten.</p>
+        <p>Daarom wordt Het Oerpad opgevat als vredesarchitectuur.</p>
+      </section>
 
-        <section class="section">
-          <h2>Across Generations</h2>
-          <p>Het Oerpad is niet bedoeld voor één generatie. Een gedeeld menselijk begin is niet tijdelijk. Daarom mag de vorm ervan niet alleen voor het moment worden bedacht.</p>
-        </section>
-      </div>
+      <section class="card">
+        <h2>Across Generations</h2>
+        <p>Het Oerpad is niet bedoeld voor één generatie. Een gedeeld menselijk begin is niet tijdelijk. Daarom mag de vorm ervan niet alleen voor het moment worden bedacht.</p>
+      </section>
 
-      <section class="section">
+      <section class="card">
         <h2>Non-Commercial & Non-Political</h2>
         <p>Het Oerpad is geen commercieel project. Het is ook geen politiek project.</p>
         <p>Niet winst. Niet macht. Niet mobilisatie. Wel een gedeeld menselijk begin dat aan die logica voorafgaat.</p>
       </section>
 
-      <section class="section">
+      <section class="card">
         <h2>Thinking Culture</h2>
         <p>Het Oerpad vraagt om een manier van denken die groot durft te denken zonder zichzelf te overschatten.</p>
         <p>Thinking Culture betekent hier dat denken geen versiering is, maar bescherming. Bescherming tegen grootspraak. Bescherming tegen zelfbedrog.</p>
